@@ -9,6 +9,8 @@ export class AppComponent {
   serverElements = [
     { type: 'server', name: 'Testserver', content: 'just test!' },
   ];
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
 
   onServerAdded(serverData: { serverName: string; serverContent: string }) {
     this.serverElements.push({
@@ -32,5 +34,13 @@ export class AppComponent {
 
   onDestoryFirst() {
     this.serverElements.splice(0, 1);
+  }
+
+  onScoreFired(firedScore) {
+    if (firedScore % 2 === 0) {
+      this.evenNumbers.push(firedScore);
+    } else {
+      this.oddNumbers.push(firedScore);
+    }
   }
 }
